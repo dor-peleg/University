@@ -1,0 +1,47 @@
+Ex6 description
+First, we have indicated the following consonant   variables:
+DEFAULT_SAMPLE_RATE = 2000 - The default rate value of composited wav file. 
+MIN_VALUE = -32768  - The maximum volume.
+MAX_VALUE = 32767  - The minimum volume.
+A = 440 -  The note A frequency.
+B = 494 -  The note B frequency.
+C = 523 -  The note C frequency.
+D = 587 -  The note D frequency.
+E = 659 -  The note E frequency.
+F = 698 -  The note F frequency.
+G = 784 -  The note G frequency.
+
+After, we have written the code in the following order:
+There is the main function that executes the program – main ()
+It contains calls to all the function.
+First, main() always calls  to start_screen(), function that Prints to the screen the 3 main options, asks the user to choose one and returns the user's choice.
+After, there are calls depending on the user's choice:
+
+If the user had chosen option 1, meaning the user wants to modify a wave file.
+main() calls to the following  functions in this order:
+ load_file() – function that gets string of the .wav file's name the user want to change,
+return integer of the sample rate of the .wav file and list of lists with the samples data.
+modify_wave(data_lst) – function that gets the samples data from the previous function
+and calls to:
+ change_wav_menu() - prints 7 options for changing the wav data and another one for exit option, asks the user what action he would like to do and return his choice.
+Depending on his choice, from the 7 options of modifing, modify_wave(data_lst) calls to function that changes the data list accordingly: 
+1	 reverse(data_lst)
+2	audio_negation(data_lst)
+3	acceleration(data_lst)
+4	deceleration(data_lst)
+5	increase_vol(data_lst)
+6	decreasing_volume(data_lst)
+7	low_pass_filter(data_lst)
+when the user chooses 8 the user transfers to saving_screen(sample_rate, modified_data) - function that gets the sample rate value and the list of the modified wav data, asks for file's name and saves it.
+
+If the user had chosen 2, meaning the user wants to compose a melody.
+The main() function calls the following functions:
+creating_composing_list() – the function asks the user for a name of a file with notes and the duration of each note. The function organize the data to a list of sub-list that in each sub-list there are one note an its duration.
+composing_lst(note_lst) - the function gets the notes list from the previous function, and creates a list of the samples according to the notes frequency and the sample index.
+modify_wav(data_lst) – the function gets the samples list from the previous function and ask the user for changes as described earlier.
+saving_screen(DEFAULT_SAMPLE_RATE, modified_wav) – saves the data to a file as described earlier
+ 
+If the user had chosen 3, meaning the user wants to exit the program.
+The program stops running.
+
+During the program running if the user' choice invalid the program prints matching error message,  and print again the previous request.  
